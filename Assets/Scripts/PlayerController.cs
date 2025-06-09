@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     LogicScript logic;
 
     public float upForce = 50f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,11 @@ public class PlayerController : MonoBehaviour
             body.velocity = Vector2.zero;
             body.AddForce(Vector2.up * upForce, ForceMode2D.Impulse);// force to accumulate more naturally instead of setting velocity
         }
+
+        if (transform.position.y > 20 || transform.position.y < -20) //bounds of the camera
+        {
+            logic.GameOver(); //End game if player goes out of bounds
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -33,4 +39,6 @@ public class PlayerController : MonoBehaviour
             logic.GameOver(); //end the game if we collide with pipes
         }
     }
+
+
 }

@@ -8,6 +8,7 @@ using UnityEngine.UI; //allows me to access unity UI
 public class LogicScript : MonoBehaviour
 {
     public int score;
+    public bool gameOn = false;
     public PlayerController player;
     public PipeSpawner pipeSpawner;
     public GameObject gameOverScreen;
@@ -17,6 +18,7 @@ public class LogicScript : MonoBehaviour
     {
         score = 0;
         scoreText.text = score.ToString();
+        gameOn = true;
     }
     [ContextMenu("Increase Score")] //allows me to test methods in the unity editor
     public void AddScore(int scoreToAdd)
@@ -37,6 +39,7 @@ public class LogicScript : MonoBehaviour
         gameOverScreen.SetActive(true); //bring up gameover UI
         player.enabled = false; //disables player movement
         pipeSpawner.enabled = false; //disables the pipe spawning
+        gameOn = false;
 
     }
 

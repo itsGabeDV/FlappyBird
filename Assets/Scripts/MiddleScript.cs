@@ -10,18 +10,11 @@ public class MiddleScript : MonoBehaviour
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>(); //set the tag of the Logicscript and locate it using the tag
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Collided with " + collision.gameObject.name);
 
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 3 && logic.gameOn)
         {
             logic.AddScore(1);
 
