@@ -32,11 +32,16 @@ public class LogicScript : MonoBehaviour
 
     public void GameOver()
     {
-         Debug.Log("Ending Game.");
+        Debug.Log("Ending Game.");
 
         gameOverScreen.SetActive(true); //bring up gameover UI
         player.enabled = false; //disables player movement
         pipeSpawner.enabled = false; //disables the pipe spawning
 
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); //get currently loaded level and load level before
     }
 }
