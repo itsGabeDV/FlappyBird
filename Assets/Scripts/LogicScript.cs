@@ -14,6 +14,11 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
 
     public TextMeshProUGUI scoreText;
+
+    //public AudioSource flapSFX;
+    //public AudioSource pointSFX;
+
+    //public AudioSource bumpSFX;
     void Start()
     {
         score = 0;
@@ -25,6 +30,7 @@ public class LogicScript : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = score.ToString(); //set the text to the score
+    //    flapSFX.Play(); 
     }
 
     public void RestartGame()
@@ -35,7 +41,7 @@ public class LogicScript : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Ending Game.");
-
+    //    bumpSFX.Play();
         gameOverScreen.SetActive(true); //bring up gameover UI
         player.enabled = false; //disables player movement
         pipeSpawner.enabled = false; //disables the pipe spawning

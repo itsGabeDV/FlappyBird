@@ -17,7 +17,7 @@ public class MiddleScript : MonoBehaviour
         if (collision.gameObject.layer == 3 && logic.gameOn)
         {
             logic.AddScore(1);
-
+        //    logic.pointSFX.Play();
         }
     }
 }
